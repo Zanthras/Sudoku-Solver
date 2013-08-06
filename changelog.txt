@@ -1,0 +1,102 @@
+TOFIX/ADD:
+ x-cycles need to be added. This will make it possible to see the last type of medusa in medusa4. Update: Not true anymore quad hinged is an alternate solve path. The 4th varient can be seen in the logs of the grid board, still need to program it in.
+
+August 5th 2013
+ Added the generic varient to my hinged matches, but limited to only size 4 as its slower than the the more specific size 3 varient, and I doubt its worthwhile to add a size 5.
+ Added some basic per function solve time reporting
+
+August 2nd 2013
+ Slight changes to the solver messages to add more information
+ Added a count of the solver functions to the main page
+
+July 27th 2013
+ Fixed a small bug in medusa chains, check if chains were found before forcing a read of the first entry...
+ Added in the simple version of hinged matches, an example can be seen on medusa4
+
+July 25th 2013
+ Rewrote the logic behind hidden matches to support a wider variety of matches. [2,3], [3,6], [2,6] now properly counts as a triple. (The sum of the possibilities that appear in a group of cells must be the same as the number of cells. The contents of an individual cell dont matter.)
+ Fixed a bug in naked matches incorrectly thinking all cells were in the same square when they werent.
+
+July 24th 2013
+ Added initial support for medusa or 3 dimensional simple chains. medusa boards added for example
+
+July 21st 2013
+ Added support for more than one possible start of a simple chain. It will now check every possible start location (that hasnt already been processed in a previous chain)
+
+July 9th 2013
+ Added new solving function Locked Pairs(2x2 grid)... locked pair example board added
+ Cleaned up matched pair and made it less restrictive, also removed a pointless branch.
+ Added new solving function Grids... (its a much less restrictive type of locked pairs... makes 3x3 and 4x4 grids with holes)
+  grids example board added to showcase both sizes
+
+July 8th 2013
+ Added new solving function Corner intersection... weaklinks example board now solves
+
+July 7th 2013
+ All solvers ported to the new structure.
+ Fixed a step bug in matched entries
+ Added additional checking for naked entries to make them less stupid.
+ Fixed num in line for being too restrictive in its check to trim, it now catches some obvious cases
+ Added JS flair to report the cell you are mousing over (was easier to debug display problem)
+ Inital code cleanup started to organize the modules better
+
+July 4th 2013
+ Rebuilt the main program flow to support a sane solve order.
+ Ported the two most basic placement functions.
+
+ Program Flows:
+  Old: loop place num (basic solver)
+            Trim board
+             place num
+              loop trim
+  This results in it trimming when it should be placing
+  
+  New: Outer Loop:
+        check for completion
+        inner loop: try every function in order
+         if progress break out of inner loop
+  This results in trying the easy functions first, never hitting the hard ones until needed.
+
+June 3rd 2013
+ Updated binary chain logic to actually work with weak links. Split it off from the main binary chain function
+ Fixed a bug in the make_loop function
+
+June 2nd 2013
+ Tried to add weak links to my binary chain... my understanding of weaklinks is flawed... reverting
+ Updated find_excess_chain function to trigger on all excess matches (only was looking with a single line type, not all types at once)
+ Updated invalid_chain_baord to trigger on all invalid chains (forgot to check columns and squares)
+
+June 1st 2013
+ Related triplicates function exporting to gamelog
+ hidden_matches function exporting to gamelog
+ binary_chain function exporting to gamelog
+
+May 30th 2013
+ updated trim_naked_matches to export to gamelog
+ Colors! All gamelog exporting functions now also export color info
+ publish board updated to silently complete all steps up to but not including the last step. The last step now wont remove possibilities and...
+ updated publish board to support reading the color info and integrating it into the final table (redid the ptable portion completely) on the last step
+ Fixed html formatting issue that cropped up after adding the colors to the table (screw you w3... im using depreciated stuff!)
+
+May 29th 2013
+ Updated the gamelog to understand steps
+ Updated the gamelog to only show the details of the current step or every step on a solve
+ Updated trim_ptable_for_num_in_line to export to gamelog
+ Fixed corner case with gamelog for steps beyond the end not showing the final step
+ Added all my test case boards as selectable examples
+
+May 28th 2013
+ Added logging
+
+Pre-Web History:
+
+v1.0: Can solve basic puzzles without resorting to possibilities
+v2.0: Generates possibility table replicates v1 solving with possibility table
+v2.1: Can trim possibility table for matched pairs
+v2.2: Trim possibility table based off single number only line in a square
+v2.3: for specific row/column if num in square and not in other square, clean rest of current square
+v2.4: Updated matched pair to be length agnostic. Also allows for 2+ matches.
+v2.5: Update matched function to not just match on [1,2,3] [1,2,3] [1,2,3] but also on [1,2,3] [1,2,3] [1,2,3,4] and remove the 4
+v3.0: Converted to web based application for the front end UI
+
+
