@@ -29,7 +29,7 @@ This file is part of Sudoku Solver.
 #      remove the common possibility from all the intersected coords
  
  
-# --- more general version---
+# --- more advanced version---
  
 # for every cell that has between 2 and 4 possibilities
 # find all cells(corners) that it can see that has between 2 and 4 possibilities
@@ -161,6 +161,3 @@ def hinged_match(board, pboard):
                             return True
     return False
 hinged_match.name = "Hinged Match"
-                
-
-                 

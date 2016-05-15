@@ -232,7 +232,3 @@ print '''
 '''
 
 print '<br><br><br><br><br><br><br><br><br><br><br><br><a href="index.py">Main</a> <a href="changelog.txt">Changelog</a> <a href="sudoku.log">Log</a> <a href="source/">Source</a>'
-
-
-
-    

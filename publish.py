@@ -134,4 +134,3 @@ def tableprint(board, pboard):
             html += "\n  </tr>"
     html += "\n</table>\n</td></tr></table>"
     return html
- 
